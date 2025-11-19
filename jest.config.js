@@ -7,35 +7,35 @@ module.exports = {
     {
       displayName: 'server',
       testEnvironment: 'node',
-      testMatch: ['<rootDir>/server/tests/**/*.test.js'],
+      testMatch: ['<rootDir>/backend/test/**/*.test.js'],
       moduleFileExtensions: ['js', 'json', 'node'],
-      setupFilesAfterEnv: ['<rootDir>/server/tests/setup.js'],
-      coverageDirectory: '<rootDir>/coverage/server',
+      // setupFilesAfterEnv: ['<rootDir>/backend/test/setup.js'], // Optional: if you create a setup file
+      coverageDirectory: '<rootDir>/coverage/backend',
       collectCoverageFrom: [
-        'server/src/**/*.js',
-        '!server/src/config/**',
+        'backend/**/*.js',
+        '!backend/test/**',
         '!**/node_modules/**',
       ],
     },
     
     // Client-side tests configuration
     {
-      displayName: 'client',
+      displayName: 'frontend',
       testEnvironment: 'jsdom',
-      testMatch: ['<rootDir>/client/src/**/*.test.{js,jsx}'],
+      testMatch: ['<rootDir>/frontend/src/**/*.test.{js,jsx}'],
       moduleFileExtensions: ['js', 'jsx', 'json'],
       moduleNameMapper: {
         '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-        '\\.(jpg|jpeg|png|gif|webp|svg)$': '<rootDir>/client/src/tests/__mocks__/fileMock.js',
+        '\\.(jpg|jpeg|png|gif|webp|svg)$': '<rootDir>/frontend/src/__tests__/__mocks__/fileMock.js',
       },
-      setupFilesAfterEnv: ['<rootDir>/client/src/tests/setup.js'],
+      // setupFilesAfterEnv: ['<rootDir>/frontend/src/setupTests.js'], // Default for Create React App
       transform: {
         '^.+\\.(js|jsx)$': 'babel-jest',
       },
-      coverageDirectory: '<rootDir>/coverage/client',
+      coverageDirectory: '<rootDir>/coverage/frontend',
       collectCoverageFrom: [
-        'client/src/**/*.{js,jsx}',
-        '!client/src/index.js',
+        'frontend/src/**/*.{js,jsx}',
+        '!frontend/src/index.js',
         '!**/node_modules/**',
       ],
     },
